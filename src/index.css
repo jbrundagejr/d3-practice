@@ -9,6 +9,18 @@ body {
   text-anchor: middle;
 }
 
-.populationTicks {
-  text-anchor: start;
+.tick text {
+  text-anchor: end;
+}
+
+.tick line {
+  color: rgb(173, 13, 13);
+}
+
+.mark {
+  fill: rgb(108, 163, 214);
+}
+
+.axisLabel {
+  text-anchor: middle;
 }

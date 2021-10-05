@@ -14,10 +14,9 @@ export const useData = () => {
     }
     csv(csvURL, row).then(data => {
       setData(data.filter(d => {
-        if(d.Report_Date_String === '2021-06-01') return true
-        else return null
-      }))
+        return (d.Report_Date_String === '2021-06-01')
+      }).slice(0, 10))
     })
   }, [])
-  return data.slice(0, 10)
+  return data
 }
