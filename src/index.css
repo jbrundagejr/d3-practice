@@ -4,17 +4,19 @@ body {
 }
 
 .countryTick {
-  font-size: 0.75em;
+  font-size: 0.8em;
   color: black;
   text-anchor: middle;
+  font-family: 'Oswald', sans-serif;
 }
 
 .tick text {
   text-anchor: end;
+  font-family: 'Oswald', sans-serif;
 }
 
 .tick line {
-  color: rgb(173, 13, 13);
+  color: rgb(224, 42, 42);
 }
 
 .mark {
@@ -23,4 +25,11 @@ body {
 
 .axisLabel {
   text-anchor: middle;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1em;
+}
+
+#chartContainer {
+  margin: 0 20%;
+  padding: 2%;
 }

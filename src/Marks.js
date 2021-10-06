@@ -1,4 +1,4 @@
-const Marks = ({data, xScale, yScale, innerHeight, xValue, yValue}) => 
+const Marks = ({data, xScale, yScale, innerHeight, xValue, yValue, markFormat}) => 
   data.map((d, idx) => (
     <rect 
       key={idx}
@@ -8,7 +8,7 @@ const Marks = ({data, xScale, yScale, innerHeight, xValue, yValue}) =>
       width={xScale.bandwidth()}
       height={yScale(yValue(d))}
     >
-      <title>Fully Vacinated: {yValue(d)}</title>
+      <title>Fully Vacinated: {markFormat(yValue(d))}</title>
       </rect>
   )
 )

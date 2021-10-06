@@ -1,13 +1,13 @@
-const AxisLeft = ({yScale, innerWidth, tickFormat}) => (
+const AxisLeft = ({yScale, innerWidth, tickFormat, innerHeight}) => (
   yScale.ticks().map(tickValue => (
-    <g key={tickValue} className="tick" transform={`translate(0, ${yScale(tickValue)})`}>
+    <g key={tickValue} className="tick">
       <line
-        y1={yScale(tickValue)}
+        y1={innerHeight - yScale(tickValue)}
         x2={innerWidth}
-        y2={yScale(tickValue)}
+        y2={innerHeight - yScale(tickValue)}
         stroke="black"
       />
-      <text>{tickFormat(tickValue)}</text>
+      <text transform={`translate(0, ${innerHeight - yScale(tickValue)})`}>{tickFormat(tickValue)}</text>
     </g>
     )
   )
