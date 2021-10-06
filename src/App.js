@@ -6,9 +6,9 @@ import AxisBottom from './AxisBottom'
 import Marks from './Marks'
 
 function App() {
-  const width = 960
-  const height = 500
-  const margin = {top: 20, right: 20, bottom: 50, left: 100}
+  const width = 1280
+  const height = 720
+  const margin = {top: 40, right: 40, bottom: 40, left: 40}
 
   const innerWidth = width - margin.left - margin.right
   const innerHeight = height - margin.top - margin.bottom
@@ -34,28 +34,26 @@ function App() {
     .range([0, innerHeight]) 
 
   return (
-    <div id="chartContainer">
-    <svg width={width} height={height}>
-      <g transform={`translate(${margin.left}, ${margin.top})`}>
-        <AxisBottom xScale={xScale} innerHeight={innerHeight} />
-        <AxisLeft 
-          yScale={yScale} 
-          innerWidth={innerWidth}
-          innerHeight={innerHeight} 
-          tickFormat={n => format('.2s')(n)}/>
-        <text x={innerWidth /2} y={-5} className="axisLabel">Number of Populations Fully Vaccinated as of 6/1/2021</text>
-        <Marks 
-          data={data} 
-          xScale={xScale} 
-          yScale={yScale} 
-          innerHeight={innerHeight}
-          xValue={xValue}
-          yValue={yValue}
-          markFormat={n => format(',')(n)}
-        />
-      </g>
-    </svg>
-    </div>
+      <svg width={width} height={height} id="chartContainer">
+        <g transform={`translate(${margin.left}, ${margin.top})`}>
+          <AxisBottom xScale={xScale} innerHeight={innerHeight} />
+          <AxisLeft 
+            yScale={yScale} 
+            innerWidth={innerWidth}
+            innerHeight={innerHeight} 
+            tickFormat={n => format('.2s')(n)}/>
+          <text x={innerWidth /2} y={-5} className="axisLabel">Number of People Fully Vaccinated Against COVID-19 as of 6/1/2021</text>
+          <Marks 
+            data={data} 
+            xScale={xScale} 
+            yScale={yScale} 
+            innerHeight={innerHeight}
+            xValue={xValue}
+            yValue={yValue}
+            markFormat={n => format(',')(n)}
+          />
+        </g>
+      </svg>
   )
 }
 

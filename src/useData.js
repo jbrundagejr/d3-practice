@@ -15,7 +15,7 @@ export const useData = () => {
     csv(csvURL, row).then(data => {
       setData(data.filter(d => {
         return (d.Report_Date_String === '2021-06-01')
-      }).slice(0, 10))
+      }).slice(0, 20))
     })
   }, [])
   return data
