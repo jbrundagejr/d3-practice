@@ -1,6 +1,31 @@
 body {
   margin: 0;
   overflow: hidden;
+  background-color: #eeeeee;
+}
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 4em;
+}
+
+.headerLink {
+  font-size: 1.5em;
+  font-family: 'Oswald', sans-serif;
+  text-decoration: none;
+  color: black;
+  padding-left: 10px;
+}
+
+.headerLink:hover {
+  color: rgb(108, 163, 214);
+}
+
+#navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 7em;
 }
 
 .countryTick {
@@ -18,7 +43,8 @@ body {
 }
 
 .tick line {
-  color: rgb(224, 42, 42);
+  color: black;
+  stroke: black;
 }
 
 .mark {

@@ -1,4 +1,4 @@
-const Marks = ({data, xScale, yScale, xValue, yValue, markFormat, circleRadius }) => 
+const ScatterPlotMarks = ({data, xScale, yScale, xValue, yValue, markFormat, circleRadius }) => 
   data.map((d, idx) => (
     <circle 
       key={idx}
@@ -12,4 +12,4 @@ const Marks = ({data, xScale, yScale, xValue, yValue, markFormat, circleRadius }
   )
 )
 
-export default Marks
+export default ScatterPlotMarks

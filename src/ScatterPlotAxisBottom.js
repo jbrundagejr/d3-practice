@@ -1,4 +1,4 @@
-const AxisBottom = ({xScale, innerHeight, tickOffset = 3}) => (
+const ScatterPlotAxisBottom = ({xScale, innerHeight, tickOffset = 3}) => (
   xScale.ticks().map(tickValue => (
     <g key={tickValue} className="tick" transform={`translate(${xScale(tickValue)}, 0)`}>
       <line y2={innerHeight}/>
@@ -10,4 +10,4 @@ const AxisBottom = ({xScale, innerHeight, tickOffset = 3}) => (
   )
 )
 
-export default AxisBottom
+export default ScatterPlotAxisBottom

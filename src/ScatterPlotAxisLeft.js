@@ -1,4 +1,4 @@
-const AxisLeft = ({yScale, innerWidth, tickOffset = 3}) => 
+const ScatterPlotAxisLeft = ({yScale, innerWidth, tickOffset = 3}) => 
   yScale.ticks().map((tickValue, idx) => (
     <g className="tick" transform={`translate(0, ${yScale(tickValue)})`}>
       <line x2={innerWidth} />
@@ -14,4 +14,4 @@ const AxisLeft = ({yScale, innerWidth, tickOffset = 3}) =>
   )
 )
 
-export default AxisLeft
+export default ScatterPlotAxisLeft
