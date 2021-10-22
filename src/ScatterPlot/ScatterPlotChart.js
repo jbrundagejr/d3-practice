@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import {csv, scaleLinear, max, format, extent} from 'd3'
-import ScatterPlotAxisLeft from './ScatterPlotAxisLeft'
-import ScatterPlotAxisBottom from './ScatterPlotAxisBottom'
-import ScatterPlotMarks from './ScatterPlotMarks'
+import {csv, scaleLinear, format, extent} from 'd3'
+import ScatterPlotAxisLeft from '../ScatterPlot/ScatterPlotAxisLeft'
+import ScatterPlotAxisBottom from '../ScatterPlot/ScatterPlotAxisBottom'
+import ScatterPlotMarks from '../ScatterPlot/ScatterPlotMarks'
+import {Loader} from 'semantic-ui-react'
 
 const ScatterPlotChart = () => {
   const width = 1280
@@ -32,8 +33,10 @@ const ScatterPlotChart = () => {
   }
   const data = useData()
 
+  console.log(data)
+
   if(!data){
-    return <p>Loading...</p>
+    return <Loader active inline='centered' />
   }
 
   const xValue = d => d.sepal_length
@@ -53,6 +56,7 @@ const ScatterPlotChart = () => {
   return (
       <svg width={width} height={height} id="chartContainer">
         <g transform={`translate(${margin.left}, ${margin.top})`}>
+        <text x={innerWidth /2} y={-15} className="axisLabel">Iris Flower Measurements (in Centimeters)</text>
           <ScatterPlotAxisBottom xScale={xScale} innerHeight={innerHeight} tickOffset={5}/>
           <text 
             className="axisLabel"
@@ -61,7 +65,7 @@ const ScatterPlotChart = () => {
           >
             {yAxisLabel}
           </text>
-          <ScatterPlotAxisLeft yScale={yScale} innerWidth={innerWidth} tickOffset={-5}/>
+          <ScatterPlotAxisLeft yScale={yScale} innerWidth={innerWidth} innerHeight={innerHeight} tickOffset={-5}/>
           <text 
             className="axisLabel"
             x={innerWidth/2}

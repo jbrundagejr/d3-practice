@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <div id='navContainer'>
       <div>
-        <h1 onClick={handleHomeClick}>Jon's d3.js</h1>
+        <h1 onClick={handleHomeClick}>jon's d3.js</h1>
       </div>
       <nav>
         <NavLink className="headerLink" to='/'>Working Chart</NavLink>

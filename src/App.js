@@ -2,8 +2,8 @@ import React from 'react'
 import {Switch, Route} from 'react-router-dom'
 import Header from './Header'
 import CurrentChart from './CurrentChart'
-import BarChart from './BarChart'
-import ScatterPlotChart from './ScatterPlotChart'
+import BarChart from './BarChart/BarChart'
+import ScatterPlotChart from './ScatterPlot/ScatterPlotChart'
 
 const App = () => {
   

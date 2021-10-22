@@ -1,8 +1,9 @@
 import {useState, useEffect} from 'react'
 import {csv, scaleLinear, scaleBand, max, format} from 'd3'
-import BarChartAxisLeft from './BarChartAxisLeft'
-import BarChartAxisBottom from './BarChartAxisBottom'
-import BarChartMarks from './BarChartMarks'
+import BarChartAxisLeft from '../BarChart/BarChartAxisLeft'
+import BarChartAxisBottom from '../BarChart/BarChartAxisBottom'
+import BarChartMarks from '../BarChart/BarChartMarks'
+import {Loader} from 'semantic-ui-react'
 
 const BarChart = () => {
   const width = 1280
@@ -34,10 +35,8 @@ const BarChart = () => {
   const data = useData()
 
   if(!data){
-    return <p>Loading...</p>
+    return <Loader active inline='centered' />
   }
-
-  console.log(data)
 
   const xValue = d => d.Country_Region
   const yValue = d => d.People_Fully_Vaccinated

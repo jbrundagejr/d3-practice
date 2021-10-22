@@ -61,3 +61,15 @@ h1 {
   margin: 0 20%;
   padding-top: 2%;
 }
+
+.setosa {
+  fill: rgb(140, 96, 153);
+}
+
+.virginica {
+  fill: rgb(208, 93, 243);
+}
+
+.versicolor {
+  fill: rgb(90, 5, 116);
+}
