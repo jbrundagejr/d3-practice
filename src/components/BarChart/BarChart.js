@@ -1,13 +1,13 @@
 import {useState, useEffect} from 'react'
 import {csv, scaleLinear, scaleBand, max, format} from 'd3'
-import BarChartAxisLeft from '../BarChart/BarChartAxisLeft'
-import BarChartAxisBottom from '../BarChart/BarChartAxisBottom'
-import BarChartMarks from '../BarChart/BarChartMarks'
+import BarChartAxisLeft from './BarChartAxisLeft'
+import BarChartAxisBottom from './BarChartAxisBottom'
+import BarChartMarks from './BarChartMarks'
 import {Loader} from 'semantic-ui-react'
 
 const BarChart = () => {
-  const width = 1280
-  const height = 720
+  const width = 1500
+  const height = 844
   const margin = {top: 40, right: 40, bottom: 40, left: 40}
 
   const innerWidth = width - margin.left - margin.right
@@ -27,7 +27,7 @@ const BarChart = () => {
       csv(csvURL, row).then(data => {
         setData(data.filter(d => {
           return (d.Report_Date_String === '2021-06-01')
-        }).slice(0, 20))
+        }).slice(0, 15))
       })
     }, [])
     return data
@@ -51,7 +51,8 @@ const BarChart = () => {
     .range([0, innerHeight]) 
 
   return (
-      <svg width={width} height={height} id="chartContainer">
+    <div className="chartContainer">
+      <svg width={width} height={height}>
         <g transform={`translate(${margin.left}, ${margin.top})`}>
           <BarChartAxisBottom xScale={xScale} innerHeight={innerHeight} />
           <BarChartAxisLeft 
@@ -68,9 +69,10 @@ const BarChart = () => {
             xValue={xValue}
             yValue={yValue}
             markFormat={n => format(',')(n)}
-          />
+            />
         </g>
       </svg>
+    </div>
   )
 }
 

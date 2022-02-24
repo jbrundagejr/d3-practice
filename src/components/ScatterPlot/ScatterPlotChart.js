@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react'
-import {csv, scaleLinear, max, format, extent} from 'd3'
-import AxisLeft from './AxisLeft'
-import AxisBottom from './AxisBottom'
-import Marks from './Marks'
+import {csv, scaleLinear, format, extent} from 'd3'
+import ScatterPlotAxisLeft from './ScatterPlotAxisLeft'
+import ScatterPlotAxisBottom from './ScatterPlotAxisBottom'
+import ScatterPlotMarks from './ScatterPlotMarks'
+import {Loader} from 'semantic-ui-react'
 
-const CurrentChart = () => {
-  const width = 1280
-  const height = 720
+const ScatterPlotChart = () => {
+  const width = 1500
+  const height = 844
   const margin = {top: 80, right: 80, bottom: 80, left: 80}
   const innerWidth = width - margin.left - margin.right
   const innerHeight = height - margin.top - margin.bottom
@@ -33,7 +34,7 @@ const CurrentChart = () => {
   const data = useData()
 
   if(!data){
-    return <p>Loading...</p>
+    return <Loader active inline='centered' />
   }
 
   const xValue = d => d.sepal_length
@@ -51,9 +52,11 @@ const CurrentChart = () => {
     .range([0, innerHeight]) 
 
   return (
-      <svg width={width} height={height} id="chartContainer">
+    <div className='chartContainer'>
+      <svg width={width} height={height}>
         <g transform={`translate(${margin.left}, ${margin.top})`}>
-          <AxisBottom xScale={xScale} innerHeight={innerHeight} tickOffset={5}/>
+        <text x={innerWidth /2} y={-15} className="axisLabel">Iris Flower Measurements (in Centimeters)</text>
+          <ScatterPlotAxisBottom xScale={xScale} innerHeight={innerHeight} tickOffset={5}/>
           <text 
             className="axisLabel"
             textAnchor="middle"
@@ -61,7 +64,7 @@ const CurrentChart = () => {
           >
             {yAxisLabel}
           </text>
-          <AxisLeft yScale={yScale} innerWidth={innerWidth} tickOffset={-5}/>
+          <ScatterPlotAxisLeft yScale={yScale} innerWidth={innerWidth} innerHeight={innerHeight} tickOffset={-5}/>
           <text 
             className="axisLabel"
             x={innerWidth/2}
@@ -69,18 +72,20 @@ const CurrentChart = () => {
           >
             {xAxisLabel}
           </text>
-          <Marks 
+          <ScatterPlotMarks 
             data={data} 
             xScale={xScale} 
             yScale={yScale} 
             xValue={xValue}
             yValue={yValue}
+            innerHeight={innerHeight}
             markFormat={n => format(',')(n)}
             circleRadius={10}
           />
         </g>
       </svg>
+    </div>
   )
 }
 
-export default CurrentChart;
+export default ScatterPlotChart;

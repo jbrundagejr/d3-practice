@@ -1,4 +1,4 @@
-const AxisLeft = ({yScale, innerWidth, tickFormat, innerHeight}) => (
+const BarChartAxisLeft = ({yScale, innerWidth, tickFormat, innerHeight}) => (
   yScale.ticks().map(tickValue => (
     <g key={tickValue} className="tick">
       <line
@@ -13,4 +13,4 @@ const AxisLeft = ({yScale, innerWidth, tickFormat, innerHeight}) => (
   )
 )
 
-export default AxisLeft
+export default BarChartAxisLeft

@@ -57,8 +57,8 @@ h1 {
   font-size: 2em;
 }
 
-#chartContainer {
-  margin: 0 20%;
+.chartContainer {
+  text-align: center;
   padding-top: 2%;
 }
 
